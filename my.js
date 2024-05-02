@@ -108,6 +108,15 @@ document.write(`${string6} => ${countNum}`);
 // l) Check if a string contains only numeric characters.
 document.write("<h2>l) Check if a string contains only numeric characters.</br>");
 
+function OnlyNumericCharacters(str) {
+    return /^\d+$/.test(str);
+}
+
+let strings1 = "12345";
+let strings2 = "123abcd";
+
+document.write(OnlyNumericCharacters(strings1)); // Output: true
+document.write(OnlyNumericCharacters(strings2)); // Output: false
 
 
 // m) Check if a string is a valid email address.
@@ -125,4 +134,74 @@ let email = "whussain8051@gmail.com";
 
 // n) Extract the domain name from a URL string.
 document.write("<h2>n) Extract the domain name from a URL string.</br>");
+
+function extractDomain(url) {
+    let domain = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/g);
+    
+    // If a match is found, return the first match
+    if (domain && domain.length > 0) {
+        return domain[0].replace(/^https?:\/\//, '').replace(/^www\./, '');
+    } else {
+        return null; // Return null if no domain found
+    }
+}
+
+let url = "https://www.google.com";
+let domainName = extractDomain(url);
+document.write(domainName);
+
+
+// o) Convert a string into title case (the first letter of each word capitalized).
+document.write("<h2>o) Convert a string into title case (the first letter of each word capitalized).</br>");
+
+const capitalzie = function (sentence){
+
+let str2 = sentence.split(" ");
+
+for (let i = 0; i < str2.length; i++) {
+    str2[i] = str2[i][0].toUpperCase() + str2[i].substring(1);
+}
+return str2.join(" ");
+}
+
+document.write(capitalzie("waqar hussain"));
+
+
+// p) Remove all non-alphabetic characters from a string.
+document.write("<h2>p) Remove all non-alphabetic characters from a string.</br>");
+
+function removeNonAlphabeticCharacters(str) {
+    return str.replace(/[^a-zA-Z]/g, '');
+}
+
+let cleanedString = removeNonAlphabeticCharacters("Waqar123, Hussain!");
+document.write(cleanedString);
+
+
+// q) Check if a string is a valid palindrome permutation (ignoring spaces).
+document.write("<h2>q) Check if a string is a valid palindrome permutation (ignoring spaces).</br>");
+
+
+
+// r) Check if a string is an anagram of another string.
+document.write("<h2>r) Check if a string is an anagram of another string.</br>");
+
+
+
+// s) Find the longest word in a string.
+document.write("<h2>s) Find the longest word in a string.</br>");
+
+let word = "longest word in a string.";
+let wordArr = word.split(" ");
+const sortArr = wordArr.sort(
+    (strA, strB ) => {
+        return strB.length - strA.length;
+    }
+)
+
+document.write(sortArr[0]);
+
+
+// t) Perform string compression by replacing repeated characters with the character followed by the count.
+document.write("<h2>t) Perform string compression by replacing repeated characters with the character followed by the count.</br>");
 
